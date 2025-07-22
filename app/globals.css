@@ -1,0 +1,5 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Pacifico&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
