@@ -82,7 +82,7 @@ export default function Header({
                 darkMode ? 'text-gray-300' : 'text-gray-600'
               }`}
             >
-              &quot;Where Time Meets Elegance&quot;
+              "Where Time Meets Elegance"
             </p>
           </div>
 

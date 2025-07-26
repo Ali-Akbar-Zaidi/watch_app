@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -54,7 +55,7 @@ export default function HomePage({ onPageChange, onLogout }: HomePageProps) {
               Beguiling Chronos
             </h1>
             <p className="text-2xl md:text-3xl italic font-pacifico mb-8">
-              &quot;Where Time Meets Elegance&quot;
+              "Where Time Meets Elegance"
             </p>
             <p className="text-xl md:text-2xl max-w-2xl mx-auto">
               Discover our exquisite collection of luxury timepieces
