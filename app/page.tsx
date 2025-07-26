@@ -7,7 +7,11 @@ import type { User } from '@/lib/auth';
 import AuthForm from '@/components/AuthForm';
 import HomePage from './home/page';
 import CheckoutPage from './checkout/page';
-import AdminPage from './admin/page';
+// Update the import path to the correct AdminPage component location
+// Example: If AdminPage is in components/AdminPage.tsx
+import AdminPage from '@/components/Adminpage';
+
+
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState<User | null>(null);

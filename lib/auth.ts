@@ -21,7 +21,7 @@ export interface CartItem {
   id: string;
   watchId: string;
   quantity: number;
-  watch: Watch;
+  watch?: Watch;
 }
 
 export interface Order {
