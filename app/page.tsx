@@ -9,7 +9,7 @@ import HomePage from './home/page';
 import CheckoutPage from './checkout/page';
 // Update the import path to the correct AdminPage component location
 // Example: If AdminPage is in components/AdminPage.tsx
-import AdminPage from '@/components/Adminpage';
+import AdminPage from '@/components/AdminPage';
 
 
 
