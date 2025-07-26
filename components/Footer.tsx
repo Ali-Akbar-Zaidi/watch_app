@@ -1,4 +1,3 @@
-
 'use client';
 
 interface FooterProps {
@@ -29,10 +28,10 @@ export default function Footer({ darkMode }: FooterProps) {
               About Us
             </h4>
             <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-              At Beguiling Chronos, we believe that a watch is more than just a timepiece it's a statement of style, a symbol of precision, and a testament to craftsmanship. Our carefully curated collection features the finest watches from around the world, each selected for its exceptional quality and timeless appeal.
+              At Beguiling Chronos, we believe that a watch is more than just a timepiece—it&apos;s a statement of style, a symbol of precision, and a testament to craftsmanship. Our carefully curated collection features the finest watches from around the world, each selected for its exceptional quality and timeless appeal.
             </p>
             <p className={`text-sm mt-3 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-              Whether you're seeking a classic dress watch for formal occasions, a luxury statement piece, or a vintage timepiece with character, our collection offers something for every discerning taste.
+              Whether you&apos;re seeking a classic dress watch for formal occasions, a luxury statement piece, or a vintage timepiece with character, our collection offers something for every discerning taste.
             </p>
           </div>
 
@@ -71,7 +70,7 @@ export default function Footer({ darkMode }: FooterProps) {
           darkMode ? 'border-gray-700 text-gray-400' : 'border-gray-200 text-gray-600'
         }`}>
           <p className="text-sm">
-            © 2025 Beguiling Chronos. All rights reserved. | "Where Time Meets Elegance"
+            © 2025 Beguiling Chronos. All rights reserved. | &quot;Where Time Meets Elegance&quot;
           </p>
         </div>
       </div>
