@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -53,11 +52,20 @@ export default function ProductGrid({ searchQuery, selectedCategory, darkMode }:
         {watches.map((watch) => (
           <div
             key={watch.id}
-            className={`rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 cursor-pointer ${
+            className={`rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 cursor-pointer relative ${
               darkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-100'
             }`}
             onClick={() => handleProductClick(watch)}
           >
+            {/* Discount Badge */}
+            {(watch as any).originalPrice && (watch as any).originalPrice !== watch.price && (
+              <div className="absolute top-4 left-4 z-10">
+                <span className="bg-red-500 text-white text-sm font-bold px-3 py-1 rounded-full shadow-lg">
+                  -{(watch as any).discountPercentage}% OFF
+                </span>
+              </div>
+            )}
+
             <div className="aspect-square overflow-hidden">
               <img
                 src={watch.image}
@@ -72,10 +80,32 @@ export default function ProductGrid({ searchQuery, selectedCategory, darkMode }:
               <p className={`text-sm mb-4 line-clamp-2 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                 {watch.description}
               </p>
+              
+              {/* Price Display with Discount Support */}
+              <div className="mb-4">
+                {(watch as any).originalPrice && (watch as any).originalPrice !== watch.price ? (
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <span className={`text-lg line-through ${darkMode ? 'text-gray-500' : 'text-gray-400'}`}>
+                        {formatPrice((watch as any).originalPrice)}
+                      </span>
+                    </div>
+                    <span className={`text-2xl font-bold text-green-600 ${darkMode ? 'text-green-400' : 'text-green-600'}`}>
+                      {formatPrice(watch.price)}
+                    </span>
+                    <p className={`text-sm ${darkMode ? 'text-green-400' : 'text-green-600'}`}>
+                      You save {formatPrice((watch as any).originalPrice - watch.price)}
+                    </p>
+                  </div>
+                ) : (
+                  <span className={`text-2xl font-bold ${darkMode ? 'text-amber-400' : 'text-amber-600'}`}>
+                    {formatPrice(watch.price)}
+                  </span>
+                )}
+              </div>
+
               <div className="flex items-center justify-between">
-                <span className={`text-2xl font-bold ${darkMode ? 'text-amber-400' : 'text-amber-600'}`}>
-                  {formatPrice(watch.price)}
-                </span>
+                <div></div> {/* Empty div to maintain layout */}
                 <button
                   onClick={(e) => {
                     e.stopPropagation();

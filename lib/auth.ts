@@ -1,4 +1,3 @@
-
 export interface User {
   id: string;
   username: string;
@@ -15,6 +14,8 @@ export interface Watch {
   features: string[];
   category: 'Simple' | 'Luxury' | 'Vintage';
   image: string;
+  originalPrice?: number; // Added for discount tracking
+  discountPercentage?: number; // Added for discount tracking
 }
 
 export interface CartItem {
@@ -37,6 +38,7 @@ export interface Order {
   paymentMethod: string;
   createdAt: Date;
 }
+
 // Add this to your existing exports in auth.ts
 export const getCartWithDetails = (): (CartItem & { watch?: Watch })[] => {
   if (typeof window === 'undefined') return [];
@@ -48,6 +50,7 @@ export const getCartWithDetails = (): (CartItem & { watch?: Watch })[] => {
     return { ...item, watch };
   }).filter(item => item.watch); // Filter out items with deleted watches
 };
+
 const STORAGE_KEYS = {
   USERS: 'beguiling_chronos_users',
   WATCHES: 'beguiling_chronos_watches',
@@ -88,7 +91,7 @@ export const saveUser = (user: User): void => {
 
 export const authenticateUser = (email: string, password: string): User | null => {
   if (email === 'admin@gmail.com' && password === 'ghjvbntyual') {
-    const adminUser: User = {
+    const adminUser: User = {   
       id: 'admin',
       username: 'Admin',
       email: 'admin@gmail.com',
